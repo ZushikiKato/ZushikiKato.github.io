@@ -134,7 +134,7 @@ searchButton.addEventListener("click", () => {
   } else if (query.includes("about")) {
     window.location.href = "about.html";
   } else if (query.includes("home")) {
-    window.location.href = "game.html";
+    window.location.href = "index.html";
   } else {
     alert("No matching page found!");
   }
