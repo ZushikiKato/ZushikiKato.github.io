@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Project</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="logo">
+        <!-- Logo bisa dalam bentuk teks atau gambar -->
+        <img src="hoyoverse-white.png" alt="Logo" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="game.html">Home</a></li>
+          <li><a href="hi3.html">Honkai Impact 3rd</a></li>
+          <li><a href="genshin.html">Genshin Impact</a></li>
+          <li><a href="hsr.html">Honkai Star Rail</a></li>
+          <li><a href="zzz.html">Zenless Zone Zero</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <button id="playPauseButton">Play Music</button>
+      <audio
+        id="backgroundMusic"
+        src="Honkai Impact 3rd Part 2 OST - Antares Building.mp3"
+        loop
+      ></audio>
+      <button id="searchToggle" title="Search">🔍</button>
+      </div>
+    </header>
+    <video autoplay muted loop id="backgroundVideo">
+      <source
+        src="y2mate.com - LIVE WALLPAPERHonkai Star Rail  At the Stations Space Window  1080p  1920 x 1080_1080p.mp4"
+        type="video/mp4"
+      />
+      Your browser does not support the video tag.
+    </video>
+    <div id="searchModal" class="search-modal">
+      <div class="search-box">
+        <input type="text" id="searchBar" placeholder="Search..." />
+        <button id="searchButton">🔍</button>
+        <button id="closeSearch">✖</button>
+      </div>
+    </div>   
+    <main>
+      <section id="home">
+        <div class="content fade-in">
+          <h1>Welcome to the Home Page!</h1>
+          <p>Explore the amazing content.</p>
+        </div>
+      </section>
+    </main>
+    <iframe
+      src="audio-player.html"
+      style="display: none"
+      id="audioFrame"
+    ></iframe>
+ 
+    <script src="script.js"></script>
+  </body>
+</html>

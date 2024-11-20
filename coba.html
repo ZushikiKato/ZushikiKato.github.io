@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Project</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="logo">
+        <img src="hoyoverse-white.png" alt="Logo" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#honkai">Honkai Impact 3rd</a></li>
+          <li><a href="#genshin">Genshin Impact</a></li>
+          <li><a href="#hsr">Honkai Star Rail</a></li>
+          <li><a href="#zenless">Zenless Zone Zero</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+      <button id="playPauseButton">Play Music</button>
+      <audio
+        id="backgroundMusic"
+        src="Honkai Impact 3rd Part 2 OST - Antares Building.mp3"
+        loop
+      ></audio>
+    </header>
+
+    <!-- Background Video for Home -->
+    <section id="home">
+      <video autoplay muted loop id="backgroundVideo">
+        <source
+          src="y2mate.com - LIVE WALLPAPERHonkai Star Rail  At the Stations Space Window  1080p  1920 x 1080_1080p.mp4"
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
+      </video>
+      <div class="content fade-in">
+        <h1>Welcome to the Home Page!</h1>
+        <p>Explore the amazing content.</p>
+      </div>
+    </section>
+
+    <!-- Honkai Impact 3rd Section -->
+    <section id="honkai">
+      <div class="background">
+        <img
+          src="trio herrscher.png"
+          alt="Background"
+          class="background-image"
+        />
+      </div>
+      <div class="content fade-in">
+        <div class="text-container">
+          <h1>Character Name</h1>
+          <p>Brief introduction or tagline about the character.</p>
+          <div class="info-box">
+            <p>
+              Information about the character goes here. You can include details
+              about their abilities, background, and other relevant content. The
+              content inside this box is scrollable to prevent the entire page
+              from scrolling.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

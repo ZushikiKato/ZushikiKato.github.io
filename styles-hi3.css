@@ -1,0 +1,238 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent page scroll */
+}
+
+/* Top Bar */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(51, 51, 51, 0.8); /* Transparan */
+  padding: 10px 20px;
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.logo img {
+  height: 40px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+nav ul li a:hover {
+  color: #ff5722; /* Hover effect */
+}
+
+#playPauseButton {
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#playPauseButton:hover {
+  background-color: #555;
+}
+
+/* Content Area */
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100vh;
+  padding-right: 50px;
+  color: white;
+  padding-top: 80px; /* Tambah padding agar tidak tertutup header */
+}
+
+/* Menata posisi konten pada section dengan flex */
+#extra-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Membuat konten berada di sisi kanan */
+  padding-right: 50px; /* Beri jarak dari sisi kanan */
+  height: 100vh;
+}
+
+/* Gaya text-container */
+.text-container {
+  width: 300px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 10px;
+}
+
+.text-container h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.text-container p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.info-box {
+  height: 200px;
+  overflow-y: scroll;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  text-align: justify;
+}
+
+.info-box::-webkit-scrollbar {
+  width: 8px; /* Lebar scrollbar */
+}
+
+.info-box::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5); /* Warna scrollbar */
+  border-radius: 4px;
+}
+
+/* Container untuk Slide */
+.slides-container {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.8s ease-in-out; /* Transition for smooth slide */
+  height: 100vh;
+}
+
+/* Setiap slide menempati seluruh layar */
+.slide {
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  padding-right: 50px;
+}
+
+#honkai {
+  background-image: url("trio herrscher.png");
+  background-size: cover;
+  background-position: top;
+}
+
+#part2 {
+  background-image: url("hi3part2xdream.png"); /* Ganti dengan gambar lain */
+  background-size: cover;
+  background-position: top;
+}
+
+.text-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+}
+
+.info-box {
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 0.3s; /* Tambah sedikit delay */
+}
+.fade-in.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Search Modal */
+.search-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  z-index: 20;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: #444;
+  padding: 10px 15px;
+  border-radius: 8px;
+  gap: 10px;
+}
+
+#searchBar {
+  width: 300px;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+}
+
+#searchButton {
+  background-color: #ffffff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#closeSearch {
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: white;
+}

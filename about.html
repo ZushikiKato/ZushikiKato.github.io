@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Honkai Impact Website</title>
+    <link rel="stylesheet" href="styles-about.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="hoyoverse-white.png" alt="Logo" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="game.html">Home</a></li>
+          <li><a href="hi3.html">Honkai Impact 3rd</a></li>
+          <li><a href="genshin.html">Genshin Impact</a></li>
+          <li><a href="hsr.html">Honkai Star Rail</a></li>
+          <li><a href="zzz.html">Zenless Zone Zero</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <button id="playPauseButton">Play Music</button>
+      <audio
+        id="backgroundMusic"
+        src="Honkai Impact 3rd Part 2 OST - Antares Building.mp3"
+        loop
+      ></audio>
+      <button id="searchToggle" title="Search">🔍</button>
+    </header>
+    <div class="background">
+      <img
+        src="starrail.jpeg"
+        alt="Genshin Background"
+        class="background-image"
+      />
+    </div>
+    <div id="searchModal" class="search-modal">
+      <div class="search-box">
+        <input type="text" id="searchBar" placeholder="Search..." />
+        <button id="searchButton">🔍</button>
+        <button id="closeSearch">✖</button>
+      </div>
+    </div>
+    <section id="about">
+      <div class="about-container">
+        <h1>Tentang Website</h1>
+        <p>
+          Selamat datang di web unofficial alias fan made dari Hoyoverse. Dimana
+          terdapat informasi pengenalan game dari Hoyoverse seperti Honkai
+          Impact 3rd, Genshin Impact, Honkai Star Rail, dan Zenless Zone Zero.
+        </p>
+
+        <h2>Tentang Developer</h2>
+        <p>
+          Website ini dibuat oleh [Brillian Indy Wiranata], sebagai tugas
+          project akhir mata kuliah desain web
+        </p>
+
+        <h2>Contact Us</h2>
+        <p>Email: [unofficial.hoyoverse@gmail.com]</p>
+        <p>Follow us on social media: [Instagram : @brylly_123]</p>
+
+        <h2>Thank You!</h2>
+        <p>
+          Thanks for visiting! We hope you enjoy the content and stay updated.
+        </p>
+        <p>"Tech Otaku Save The World."</p>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
