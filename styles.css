@@ -13,7 +13,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(51, 51, 51, 0.8); /* Transparan */
+  background-color: rgba(51, 51, 51, 0.8);
   padding: 10px 20px;
   color: white;
   position: fixed;
@@ -41,23 +41,45 @@ nav ul li a {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 nav ul li a:hover {
-  color: #ff5722; /* Hover effect */
+  color: #ff5722;
 }
 
 #playPauseButton {
-  background-color: #444;
-  color: white;
+  background: none;
   border: none;
-  padding: 10px;
+  color: white;
+  font-size: 24px;
   cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-right: 15px;
 }
 
 #playPauseButton:hover {
-  background-color: #555;
+  color: #ff5722;
+  border-color: #ff5722;
+  background-color: rgba(255, 87, 34, 0.1);
+}
+
+#playPauseButton:active {
+  transform: scale(0.9);
+}
+
+#playPauseIcon {
+  transition: transform 0.3s ease;
+}
+
+#playPauseButton:active #playPauseIcon {
+  transform: scale(1.2);
 }
 
 #backgroundVideo {
@@ -83,7 +105,6 @@ nav ul li a:hover {
   font-size: 20px;
 }
 
-/* Fade-in Animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -98,58 +119,89 @@ nav ul li a:hover {
 .fade-in {
   opacity: 0;
   animation: fadeIn 1s ease forwards;
-  animation-delay: 0.3s; /* Tambah sedikit delay */
+  animation-delay: 0.3s;
 }
 .fade-in.appear {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Search Modal */
-.search-modal {
-  display: none; /* Hidden by default */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
-  z-index: 20;
-  justify-content: center;
-  align-items: center;
-}
-
-.search-box {
+#searchContainer {
   display: flex;
   align-items: center;
-  background-color: #444;
-  padding: 10px 15px;
-  border-radius: 8px;
-  gap: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  padding: 5px 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  max-width: 250px;
 }
 
-#searchBar {
-  width: 300px;
-  padding: 8px;
-  font-size: 14px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+#searchInput {
+  border: none;
+  background: transparent;
+  color: white;
   outline: none;
+  font-size: 14px;
+  width: 100%;
 }
 
 #searchButton {
-  background-color: #ffffff;
-  color: white;
+  background: none;
   border: none;
-  padding: 5px 10px;
+  color: white;
+  font-size: 18px;
   cursor: pointer;
-  border-radius: 4px;
+  padding: 5px;
 }
 
-#closeSearch {
-  background-color: transparent;
-  border: none;
-  font-size: 16px;
+@media screen and (max-width: 768px) {
+  #searchContainer {
+    width: 100%;
+    justify-content: space-between;
+    padding: 5px;
+  }
+
+  #searchInput {
+    font-size: 12px;
+    width: 100px;
+  }
+
+  #searchButton {
+    font-size: 16px;
+  }
+}
+
+.hamburger {
+  display: none;
+  font-size: 30px;
   cursor: pointer;
-  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top: 20px;
+    width: 100%;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
 }

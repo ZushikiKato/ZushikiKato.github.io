@@ -1,31 +1,20 @@
-const audio = document.getElementById("backgroundMusic");
 const playPauseButton = document.getElementById("playPauseButton");
+const playPauseIcon = document.getElementById("playPauseIcon");
+const backgroundMusic = document.getElementById("backgroundMusic");
 
-function toggleMusic() {
-  if (audio.paused) {
-    audio.play();
-    localStorage.setItem("musicStatus", "playing");
-    playPauseButton.textContent = "Pause Music";
+playPauseIcon.classList.add("fa-pause");
+
+playPauseButton.addEventListener("click", () => {
+  if (backgroundMusic.paused) {
+    backgroundMusic.play();
+    playPauseIcon.classList.remove("fa-pause");
+    playPauseIcon.classList.add("fa-play");
   } else {
-    audio.pause();
-    localStorage.setItem("musicStatus", "paused");
-    playPauseButton.textContent = "Play Music";
-  }
-}
-
-window.addEventListener("load", function () {
-  const musicStatus = localStorage.getItem("musicStatus");
-
-  if (musicStatus === "playing") {
-    audio.play();
-    playPauseButton.textContent = "Pause Music";
-  } else {
-    audio.pause();
-    playPauseButton.textContent = "Play Music";
+    backgroundMusic.pause();
+    playPauseIcon.classList.remove("fa-play");
+    playPauseIcon.classList.add("fa-pause");
   }
 });
-
-playPauseButton.addEventListener("click", toggleMusic);
 
 document.querySelectorAll("nav a").forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
@@ -40,7 +29,7 @@ document.querySelectorAll("nav a").forEach((anchor) => {
     }
   });
 });
-// Muncul dengan efek fade saat elemen masuk viewport
+
 const faders = document.querySelectorAll(".fade-in");
 
 const appearOptions = {
@@ -89,65 +78,50 @@ function updateSlidePosition() {
 
 window.addEventListener("wheel", (event) => {
   if (event.deltaY > 0) {
-    moveToNextSlide(); // Scroll down
+    moveToNextSlide();
   } else {
-    moveToPreviousSlide(); // Scroll up
+    moveToPreviousSlide();
   }
 });
 
-const searchToggle = document.getElementById("searchToggle");
-const searchModal = document.getElementById("searchModal");
-const closeSearch = document.getElementById("closeSearch");
-const searchButton = document.getElementById("searchButton");
-const searchBar = document.getElementById("searchBar");
+const searchInput = document.getElementById("searchInput");
+const searchIcon = document.getElementById("searchButton");
 
-// Show search modal
-searchToggle.addEventListener("click", () => {
-  searchModal.style.display = "flex";
-  searchBar.focus();
-});
-
-// Close search modal
-closeSearch.addEventListener("click", () => {
-  searchModal.style.display = "none";
-  searchBar.value = "";
-});
-
-// Search functionality
-searchButton.addEventListener("click", () => {
-  const query = searchBar.value.trim().toLowerCase();
-
-  if (query === "") {
-    alert("Please enter a search term!");
-    return;
+function handleSearch(query) {
+  if (query) {
+    if (query.includes("honkai") || query.includes("hi3")) {
+      window.location.href = "hi3.html";
+    } else if (query.includes("genshin")) {
+      window.location.href = "genshin.html";
+    } else if (query.includes("hsr") || query.includes("star rail")) {
+      window.location.href = "hsr.html";
+    } else if (query.includes("zenless") || query.includes("zzz")) {
+      window.location.href = "zzz.html";
+    } else if (query.includes("about")) {
+      window.location.href = "about.html";
+    } else if (query.includes("home")) {
+      window.location.href = "index.html";
+    } else {
+      alert("Page tidak ditemukan");
+    }
   }
+}
 
-  // Navigation logic
-  if (query.includes("honkai") || query.includes("hi3")) {
-    window.location.href = "hi3.html";
-  } else if (query.includes("genshin")) {
-    window.location.href = "genshin.html";
-  } else if (query.includes("hsr") || query.includes("star rail")) {
-    window.location.href = "hsr.html";
-  } else if (query.includes("zenless") || query.includes("zzz")) {
-    window.location.href = "zzz.html";
-  } else if (query.includes("about")) {
-    window.location.href = "about.html";
-  } else if (query.includes("home")) {
-    window.location.href = "index.html";
-  } else {
-    alert("No matching page found!");
-  }
-
-  // Close modal after search
-  searchModal.style.display = "none";
-  searchBar.value = "";
+searchIcon.addEventListener("click", () => {
+  const query = searchInput.value.trim().toLowerCase();
+  handleSearch(query);
 });
 
-// Close modal when clicking outside of the search box
-searchModal.addEventListener("click", (e) => {
-  if (e.target === searchModal) {
-    searchModal.style.display = "none";
-    searchBar.value = "";
+searchInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    const query = searchInput.value.trim().toLowerCase();
+    handleSearch(query);
   }
 });
+
+function toggleMenu() {
+  const navList = document.querySelector("nav ul");
+  navList.classList.toggle("active");
+}
+
+document.querySelector(".hamburger").addEventListener("click", toggleMenu);

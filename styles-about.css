@@ -29,16 +29,42 @@ header {
 .logo img {
   height: 40px;
 }
+/* Tombol dengan lingkaran */
 #playPauseButton {
-  background-color: #444;
-  color: white;
+  background: none;
   border: none;
-  padding: 10px;
+  color: white;
+  font-size: 24px; /* Ukuran ikon */
   cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; /* Membuat tombol berbentuk lingkaran */
+  border: 2px solid white; /* Lingkaran highlight */
+  transition: all 0.3s ease;
+  margin-right: 15px;
 }
 
+/* Efek hover */
 #playPauseButton:hover {
-  background-color: #555;
+  color: #ff5722;
+  border-color: #ff5722; /* Lingkaran berubah warna */
+  background-color: rgba(255, 87, 34, 0.1); /* Warna transparan pada hover */
+}
+
+/* Efek tekan */
+#playPauseButton:active {
+  transform: scale(0.9); /* Sedikit mengecil saat ditekan */
+}
+
+#playPauseIcon {
+  transition: transform 0.3s ease; /* Animasi pada ikon */
+}
+
+#playPauseButton:active #playPauseIcon {
+  transform: scale(1.2); /* Sedikit membesar saat tombol ditekan */
 }
 
 nav ul {
@@ -55,7 +81,7 @@ nav ul li a {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 nav ul li a:hover {
@@ -156,74 +182,87 @@ footer {
   object-position: middle;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .about-container {
-    padding: 20px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  h2 {
-    font-size: 24px;
-  }
-
-  p {
-    font-size: 16px;
-  }
-
-  .contact-info {
-    font-size: 16px;
-  }
-}
-
-/* Search Modal */
-.search-modal {
-  display: none; /* Hidden by default */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
-  z-index: 20;
-  justify-content: center;
-  align-items: center;
-}
-
-.search-box {
+/* Mengatur tampilan search bar */
+#searchContainer {
   display: flex;
   align-items: center;
-  background-color: #444;
-  padding: 10px 15px;
-  border-radius: 8px;
-  gap: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  padding: 5px 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  max-width: 250px; /* Membatasi lebar search box */
 }
 
-#searchBar {
-  width: 300px;
-  padding: 8px;
-  font-size: 14px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+#searchInput {
+  border: none;
+  background: transparent;
+  color: white;
   outline: none;
+  font-size: 14px;
+  width: 100%; /* Lebar mengikuti kontainer */
 }
 
 #searchButton {
-  background-color: #ffffff;
-  color: white;
+  background: none;
   border: none;
-  padding: 5px 10px;
+  color: white;
+  font-size: 18px;
   cursor: pointer;
-  border-radius: 4px;
+  padding: 5px;
 }
 
-#closeSearch {
-  background-color: transparent;
-  border: none;
-  font-size: 16px;
+@media screen and (max-width: 768px) {
+  #searchContainer {
+    width: 100%;
+    justify-content: space-between;
+    padding: 5px;
+  }
+
+  #searchInput {
+    font-size: 12px;
+    width: 100px;
+  }
+
+  #searchButton {
+    font-size: 16px;
+  }
+}
+
+/* Mengatur tampilan ikon hamburger */
+.hamburger {
+  display: none; /* Sembunyikan hamburger di layar besar */
+  font-size: 30px;
   cursor: pointer;
-  color: white;
+}
+
+/* Mengatur ulang tampilan untuk layar kecil */
+@media screen and (max-width: 768px) {
+  nav ul {
+    display: none; /* Sembunyikan menu navigasi */
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Background transparan */
+    padding-top: 20px;
+    width: 100%;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  /* Menampilkan hamburger pada layar kecil */
+  .hamburger {
+    display: block;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  /* Menampilkan menu setelah hamburger diklik */
+  nav ul.active {
+    display: flex; /* Menampilkan menu saat kelas active ditambahkan */
+  }
 }
